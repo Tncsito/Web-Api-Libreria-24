@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libreriaa_EESA", "libreriaa_EESA\libreriaa_EESA.csproj", "{13D8D023-49BB-43CF-8638-EDF0A52B6275}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13D8D023-49BB-43CF-8638-EDF0A52B6275}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13D8D023-49BB-43CF-8638-EDF0A52B6275}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13D8D023-49BB-43CF-8638-EDF0A52B6275}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13D8D023-49BB-43CF-8638-EDF0A52B6275}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5B15B382-CBF1-419D-9775-3E081EF39F11}
+	EndGlobalSection
+EndGlobal
