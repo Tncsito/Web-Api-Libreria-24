@@ -1,4 +1,5 @@
 using libreria_EESA.Data;
+using Libreria_EESA.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -62,6 +63,7 @@ namespace Libreria_EESA
             {
                 endpoints.MapControllers();
             });
+            AppDbInitializer.Seed(app);
         }
     }
 }
