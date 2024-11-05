@@ -14,15 +14,20 @@ namespace Libreria_EESA.Data.Services
         }
         public void AddBook(BookVM book)
         {
-            var _book = Book()
+            var _book = new Book()
             {
-
-            }
-        }
-
-        private object Book()
-        {
-            throw new NotImplementedException();
+                Titulo = book.Titulo,
+                Descripcion = book.Descripcion,
+                IsRead = book.IsRead,
+                DateRead = book.DateRead,
+                Rate = book.Rate,
+                Genero = book.Genero,
+                Autor = book.Autor,
+                CoverURL = book.CoverURL,
+                DateAdded = DateTime.Now
+            };
+            _context.Books.Add(_book);
+            _context.SaveChanges();
         }
     }
 }
