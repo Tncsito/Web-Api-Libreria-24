@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Libreria_EESA.Data.Models;
+using System;
+using System.Collections.Generic;
 
 namespace libreria_EESA.Data.Models
 {
@@ -14,5 +16,9 @@ namespace libreria_EESA.Data.Models
         public string Autor { get; set; }
         public string CoverURL { get; set; }
         public DateTime DateAdded { get; set; }
+        //Propiedades de navegación (en esta parte es donde especificamos las relaciones)
+        public int PublisherId { get; set; }
+        public Publisher Publisher { get; set; }
+        public List<Book_Author> Book_Authors { get; set; }
     }
 }

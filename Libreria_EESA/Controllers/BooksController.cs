@@ -37,6 +37,7 @@ namespace Libreria_EESA.Controllers
             var updateBook = _booksService.UpdateBookByID(id, book);
             return Ok(updateBook);
         }
+        [HttpDelete("delete-book-by-id/{id}")]
         public IActionResult DeleteBookId(int id)
         {
             _booksService.DeleteBookById(id);
