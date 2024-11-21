@@ -12,5 +12,6 @@ namespace Libreria_EESA.Data.ViewModels
         public string Genero { get; set; }
         public string Autor { get; set; }
         public string CoverURL { get; set; }
+        public int PublisherID { get; set; }
     }
 }

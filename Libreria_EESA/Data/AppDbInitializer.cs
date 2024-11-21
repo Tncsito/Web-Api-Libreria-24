@@ -27,6 +27,7 @@ namespace Libreria_EESA.Data
                         Autor = "primero",
                         CoverURL = "Https...",
                         DateAdded = DateTime.Now,
+                        PublisherId=1,
                     },
                     new Book()
                     {
@@ -37,6 +38,7 @@ namespace Libreria_EESA.Data
                         Autor = "segundo",
                         CoverURL = "Https...",
                         DateAdded = DateTime.Now,
+                        PublisherId=1,
                     });
                     context.SaveChanges();
                 }

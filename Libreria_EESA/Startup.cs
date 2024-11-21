@@ -41,6 +41,8 @@ namespace Libreria_EESA
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(ConnectionString));
             //A2quí se va a configurar el servicio para que pueda ser usado
             services.AddTransient<BooksService>();
+            services.AddTransient<AuthorsService>();
+            services.AddTransient<PublisherService>();
 
             services.AddSwaggerGen(c =>
             {
@@ -68,7 +70,7 @@ namespace Libreria_EESA
             {
                 endpoints.MapControllers();
             });
-            AppDbInitializer.Seed(app);
+            //AppDbInitializer.Seed(app);
         }
     }
 }

@@ -27,7 +27,8 @@ namespace Libreria_EESA.Data.Services
                 Genero = book.Genero,
                 Autor = book.Autor,
                 CoverURL = book.CoverURL,
-                DateAdded = DateTime.Now
+                DateAdded = DateTime.Now,
+                PublisherId = book.PublisherID
             };
             _context.Books.Add(_book);
             _context.SaveChanges();
