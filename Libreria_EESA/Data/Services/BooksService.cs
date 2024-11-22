@@ -1,5 +1,6 @@
 ﻿using libreria_EESA.Data;
 using libreria_EESA.Data.Models;
+using Libreria_EESA.Data.Models;
 using Libreria_EESA.Data.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace Libreria_EESA.Data.Services
         {
             _context = context;
         }
-        public void AddBook(BookVM book)
+        public void AddBookWithAuthors(BookVM book)
         {
             var _book = new Book()
             {
@@ -25,16 +26,41 @@ namespace Libreria_EESA.Data.Services
                 DateRead = book.DateRead,
                 Rate = book.Rate,
                 Genero = book.Genero,
-                Autor = book.Autor,
                 CoverURL = book.CoverURL,
                 DateAdded = DateTime.Now,
                 PublisherId = book.PublisherID
             };
             _context.Books.Add(_book);
             _context.SaveChanges();
+
+            foreach (var Id in book.AuthorIDs)
+            {
+                var _book_author = new Book_Author()
+                {
+                    BookId = _book.id,
+                    AuthorId = Id
+                };
+                _context.Book_Authors.Add(_book_author);
+                _context.SaveChanges();
+            }
         }
         public List<Book> GetAllBks() => _context.Books.ToList(); //GET por cosas
-        public Book GetBookById(int bookid) => _context.Books.FirstOrDefault(n => n.id == bookid); //GET por id
+        public BookWithAuthorsVM GetBookById(int bookid)
+        {
+            var _bookWithAuthors = _context.Books.Where(n => n.id == bookid).Select(book => new BookWithAuthorsVM()
+            {
+                Titulo = book.Titulo,
+                Descripcion = book.Descripcion,
+                IsRead = book.IsRead,
+                DateRead = book.DateRead,
+                Rate = book.Rate,
+                Genero = book.Genero,
+                CoverURL = book.CoverURL,
+                PublisherName = book.Publisher.Name,
+                AutorNames = book.Book_Authors.Select(n => n.Author.FullName).ToList()
+            }).FirstOrDefault();
+            return _bookWithAuthors;
+        } //GET por id
         public Book UpdateBookByID(int bookid, BookVM book)
         {
             var _book = _context.Books.FirstOrDefault(n => n.id == bookid);
@@ -46,7 +72,6 @@ namespace Libreria_EESA.Data.Services
                 _book.DateRead = book.DateRead;
                 _book.Rate = book.Rate;
                 _book.Genero = book.Genero;
-                _book.Autor = book.Autor;
                 _book.CoverURL = book.CoverURL;
 
                 _context.SaveChanges();
